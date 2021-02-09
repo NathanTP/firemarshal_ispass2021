@@ -9,23 +9,13 @@ an older version of this project is available as "Enabling Efficient and
 Technical Report No. UCB/EECS-2019-154.
 
 # Prerequisites
-This experiment is designed in conjunction with a particular commit of firesim.
-It is best if you clone that repository and use the version of firesim-software
-(a.k.a. FireMarshal) submoduled there: firesim:
-git@github.com:firesim/firesim.git @ 072f7197814133c6c11d3831f61b0bacb36576b3
-
-Along with a compatible FireSim and hardware infrastructure, this repository
-contains the toolchain used in the reported experiments. More recent toolchains
-will likely also work and should have little effect on this particular
-experiment. However, it is sensitive to the version of QEMU due to changes in
-shutdown logic. See the firesim documentation for toolchain instructions.
+These instructions assume you have followed the setup instructions in README.md and have recursively initialized the firesim submodule.
+    git submodule update --init --recursive firesim-PFA
 
 # Quickstart
-First checkout submodules
+These instructions assume you are working from ./firesim-PFA/sw/firesim-software.
 
-    git submodule update --init --recursive
-
-Then setup the PFA experiment repository
+Start by setting up the PFA experiment repository
 
     ./workloads/pfa-exp/install.sh
 
@@ -48,7 +38,8 @@ FireSim to run PFA experiments but we haven't yet generated a FireSim
 compatible workload description, we'll do that now:
 
     ./marshal install workloads/pflat-real-pfa.json
-    ./marshal install workloads/pflat-em-mb.json
+    ./marshal build workloads/pflat-real-mb.json
+    ./marshal install workloads/pflat-real-mb.json
 
 You can now run the experiment in FireSim (see the FireSim documentation for
 details: https://docs.fires.im/en/1.4.0/).
@@ -56,18 +47,19 @@ details: https://docs.fires.im/en/1.4.0/).
 # Reproducing Figures from ISPASS 2021 Paper
 Assuming you have followed the quickstart, FireSim should be configured to run
 a 2-node experiment using the real PFA.
-    * Run firesim as described in the documentation. It will report an output
+
+* Run firesim as described in the documentation. It will report an output
       directory which will contain the results of this experiment. e.g.:
     FireSim Simulation Exited Successfully. See results in:
 /home/centos/firesim_ispass/deploy/results-workload/2021-02-09--17-17-44-pflat-real-pfa/
 
-    * Copy results.csv to a results directory of your choosing (e.g.
+* Copy results.csv to a results directory of your choosing (e.g.
       ~/pfa\_res) and name it "pfa\_pflat\_1610.csv".
-    * Replace firesim/deploy/runtime.ini with
+* Replace firesim/deploy/runtime.ini with
       workloads/pfa-exp/fs-configs/baseline\_runtime.ini and repeat the experiment
       (this configuration is set to run the pure-software baseline). This time,
       name the results file "sw\_pflat\_1610.csv".
-    * You can now launch the jupyter notebook in
+* You can now launch the jupyter notebook in
       workloads/pfa-exp/pfa-results/ispass.ipynb. You will need to change the
       path in the "Load Raw Results" section to your output directory.
 
