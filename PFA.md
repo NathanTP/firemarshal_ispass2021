@@ -49,9 +49,9 @@ Assuming you have followed the quickstart, FireSim should be configured to run
 a 2-node experiment using the real PFA.
 
 * Run firesim as described in the documentation. It will report an output
-      directory which will contain the results of this experiment. e.g.:
-    FireSim Simulation Exited Successfully. See results in:
-/home/centos/firesim_ispass/deploy/results-workload/2021-02-09--17-17-44-pflat-real-pfa/
+  directory which will contain the results of this experiment. e.g.:
+
+    FireSim Simulation Exited Successfully. See results in: /home/centos/firemarshal_ispass/firesim-PFA/deploy/results-workload/2021-02-09--17-17-44-pflat-real-pfa/
 
 * Copy results.csv to a results directory of your choosing (e.g.
       ~/pfa\_res) and name it "pfa\_pflat\_1610.csv".
@@ -60,7 +60,7 @@ a 2-node experiment using the real PFA.
       (this configuration is set to run the pure-software baseline). This time,
       name the results file "sw\_pflat\_1610.csv".
 * You can now launch the jupyter notebook in
-      workloads/pfa-exp/pfa-results/ispass.ipynb. You will need to change the
+      workloads/pfa-exp/analysis/ispass.ipynb. You will need to change the
       path in the "Load Raw Results" section to your output directory.
 
 ## Determinism

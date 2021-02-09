@@ -1,4 +1,4 @@
 [submodule "firesim"]
 	path = firesim-PFA
-	url = git@github.com:firesim/firesim.git
+  url = https://github.com/firesim/firesim.git
 	branch = ispass2021
