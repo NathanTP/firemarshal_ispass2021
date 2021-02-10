@@ -30,7 +30,7 @@ model. Since the model is only functional, the results won't be reasonable, but
 the experiment should run correctly:
 
     ./marshal -i build workloads/pflat-real-pfa.json
-    ./marshal -i test -s workloads/pflat-real-pfa.json
+    ./marshal -i launch -s -j client workloads/pflat-real-pfa.json
 
 Finally, we can run a test in FireSim. This step assumes that you are using
 firesim-software/ as a submodule of FireSim. install.sh already configured
