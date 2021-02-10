@@ -2,3 +2,6 @@
 	path = pfa/firesim-PFA
   url = https://github.com/firesim/firesim.git
 	branch = ispass2021
+[submodule "spec/-b"]
+	path = spec/chipyard
+	url = https://github.com/ucb-bar/chipyard.git
